@@ -249,7 +249,7 @@ class Controller(object):
     def place_piece(self, pos, colorIndex):
         piece = Canvas(squares[pos[0]][pos[1]], width=C_SIZE, height=C_SIZE, bd=0, highlightthickness=0, relief='ridge', bg=BG_COLOR)
         piece.item = piece.create_oval(P_POS, P_POS, P_SIZE , P_SIZE, fill=COLOR[colorIndex])
-        piece.place(x=0, y=0)
+        piece.place(x=1, y=1)
         self._state.update(pos, colorIndex)
 
     # reverse the pieces on the board
