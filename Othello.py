@@ -36,7 +36,7 @@ move_table = {}                 # recording moves that have already been explore
 
 # a sugar providing a generator of (i,j) pairs
 def multirange(arg):
-    if isinstance(arg, int):
+    if type(arg) == int:
         return itertools.product(range(arg), range(arg))
     return itertools.product(arg, arg)
 
@@ -84,7 +84,7 @@ class AI(object):
     def evaluation(self, state):
         count = state.get_count()
 
-        imparity = (count[1]+1)/(count[-1]+1) * (1 if count[0] < 20 else -1)
+        imparity = (count[1]+0.01)/(count[-1]+0.01) * (1 if count[0] < 20 else -1)
 
         mobility = (len(state.get_moves(1,count[0]%2==0)) + 1)  \
                 / (len(state.get_moves(-1,count[0]%2==1)) + 1)
@@ -97,7 +97,7 @@ class AI(object):
             elif state.is_valid(pos, -1):
                 stability -= 1
 
-        return (mobility + 10*stability + imparity) * self._colorIndex
+        return (mobility + 10*stability + imparity) * self._colorIndex - (64 if count[self._colorIndex] == 0 else 0)
 
 
 # state of the board
