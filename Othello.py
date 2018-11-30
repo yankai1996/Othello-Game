@@ -84,10 +84,10 @@ class AI(object):
     def evaluation(self, state):
         count = state.get_count()
 
-        imparity = (count[1]+0.01)/(count[-1]+0.01) * (1 if count[0] < 20 else -1)
+        imparity = (count[1]+1)/(count[-1]+1) * (1 if count[0] < 20 else -1)
 
-        mobility = (len(state.get_moves(1,count[0]%2==0)) + 1)  \
-                / (len(state.get_moves(-1,count[0]%2==1)) + 1)
+        mobility = (len(state.get_moves(1,count[0]%2==0)) + 0.01)  \
+                / (len(state.get_moves(-1,count[0]%2==1)) + 0.01)
 
         stability = 0
         for pos in multirange([0,NUMBER-1]):
