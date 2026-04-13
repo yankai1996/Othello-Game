@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Othello Browser Edition</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="app">
+    <section class="panel">
+      <h1>Othello</h1>
+      <p class="subtitle">Classic Reversi Board</p>
+      <div class="controls">
+        <label>
+          Mode
+          <select id="mode-select">
+            <option value="pve-black">Black vs Computer</option>
+            <option value="pve-white">White vs Computer</option>
+            <option value="pvp">Player vs Player</option>
+            <option value="cvc">Computer vs Computer</option>
+          </select>
+        </label>
+        <label>
+          Difficulty
+          <select id="difficulty-select">
+            <option value="2">Easy</option>
+            <option value="4" selected>Normal</option>
+            <option value="6">Hard</option>
+          </select>
+        </label>
+        <button id="restart-btn" type="button">Restart</button>
+      </div>
+      <div class="status">
+        <h2>Game Status</h2>
+        <p id="status-text">Ready</p>
+        <p id="turn-text">Turn: -</p>
+        <p id="thinking-text"></p>
+      </div>
+      <div class="scoreboard">
+        <h2>Score</h2>
+        <div class="score-row"><span>Black</span><strong id="black-count">2</strong></div>
+        <div class="score-row"><span>White</span><strong id="white-count">2</strong></div>
+      </div>
+    </section>
+    <section class="board-wrap">
+      <div id="board" class="board" aria-label="Othello board"></div>
+    </section>
+  </main>
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>

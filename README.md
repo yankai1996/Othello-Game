@@ -1,10 +1,32 @@
 # Othello-Game
-## Introduction
 
-This is a Python implementation of AI Othello Game. You can [download](https://raw.githubusercontent.com/yankai1996/Othello-Game/master/Othello.py) and play it by running `python3 Othello.py`. Then you can see the initial interface: 
+## Browser Edition (single-player focused)
 
-<img src="https://github.com/yankai1996/Othello-Game/raw/master/img/Othello01.png" alt="Othello01.png" width="400">
+This project now includes a browser-playable Othello version with local AI:
 
-Choose a mode and play it!
+- Pure frontend stack (`HTML/CSS/JavaScript`, no backend)
+- Minimax + alpha-beta pruning AI
+- Modes: Player vs Player, Player vs Computer, Computer vs Computer
+- Difficulty levels: easy/normal/hard (depth-based)
 
-<img src="https://github.com/yankai1996/Othello-Game/raw/master/img/Othello02.png" alt="Othello02.png" width="400">
+### Run the browser version
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open [http://localhost:8000](http://localhost:8000).
+
+### Run tests
+
+```bash
+npm test
+```
+
+## Legacy Python version
+
+The original Tkinter implementation is still available in `Othello.py`:
+
+```bash
+python3 Othello.py
+```
